@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="webforms-properties">
+
+	<property environment="env"/>
+
+	<property name="tomcat.home"		value="C:\apache-tomcat-5.5.23\"/>
+	<property name="java.home"		value="C:\Java\jdk1.6.0_27\"/>
+	<property name="dist"			value="dist"/>
+	<property name="build"			value="build"/>
+	<property name="prj.war.name"		value="forms.war"/>
+	<property name="prj.mini.war.name"	value="mini-forms.war"/>
+
+</project>

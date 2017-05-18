@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="springaxis" default="all">
+<property name="YUI" value="/app/jenkins-slave/workspace/Library/yuicompressor"/> 
+<property name="CSS" value="WebContent/resources/css"/> 
+<property name="JS" value="WebContent/resources/js"/> 
+<property name="MINCSS" value="WebContent/resources/min-css"/> 
+<property name="MINJS" value="WebContent/resources/min-js"/> 
+
+	<import file="properties.xml"/>
+	
+	<!--property name="checkstyle-all.jar" value="D:/LB/dependency_jars/checkstyle-5.3/checkstyle-5.3-all.jar" /-->
+	<!--property name="check.config" value="D:/LB/dependency_jars/checkstyle-5.3/sun_checks.xml" /-->
+	
+	<path id="compile.class.path">
+		<fileset dir="WebContent/WEB-INF/lib" includes="**/*.jar"/>
+		<pathelement path="${build}/WEB-INF/classes" />
+		<pathelement path="${classpath}" />
+	</path>
+
+	<target name="all" depends="packwar,minipackwar"/>
+
+	<target name="compwar">
+		<echo message=" **** Compiling WAR "/>
+		<mkdir dir="${build}/WEB-INF/classes"/>
+		<javac srcdir="src" destdir="${build}/WEB-INF/classes" classpathref="compile.class.path" debug="on" verbose="${verbose}"/>
+	</target>
+
+	<target name="copyproperty">
+			<echo message=" **** Copy Property ** "/>
+			<mkdir dir="${build}"/>
+			<copy todir="${build}/WEB-INF/classes/com/ladbrokes/utils">
+				<fileset  file="WebContent/WEB-INF/message/dropdownlists.properties"/>
+			</copy>
+	</target>
+	
+	<target name="prepwar" depends="compwar,copyproperty">
+		<echo message=" **** Preparing WAR **** "/>
+		<mkdir dir="${build}"/>
+		<copy todir="${build}/WebContent/WEB-INF/classes">
+			<fileset dir="WebContent/WEB-INF" includes="**/*.*"/>
+		</copy>
+	</target>
+
+	<target name="packwar" depends="prepwar">
+		<echo message=" **** Packing WAR **** "/>
+		<mkdir dir="${dist}"/>
+		<war destfile="${dist}/${prj.war.name}" webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="WebContent" includes="**/*.*" excludes="WEB-INF/*.hbm.xml **/web.xml  **/.keepme **/.cvsignore **/**/**/*-min.* **/resource/min-js/** **/resource/min-css/**"/>
+			<fileset dir="${build}" includes="WEB-INF/classes/**/*.* resources/**/*.properties"/>
+		</war>
+	</target>
+
+	<target name="minifycss" depends="packwar">
+		<mkdir dir="${MINCSS}"/>
+		<mkdir dir="${MINCSS}/images"/>
+		<mkdir dir="${MINCSS}/fonts"/>
+
+    		<apply executable="java" parallel="false">
+        		<fileset dir="${CSS}" includes="*.css"/>
+        		<arg line="-jar"/>
+        		<arg path="${YUI}/yuicompressor-2.4.9.jar"/>
+        		<srcfile/>
+        		<arg line="--nomunge"/>
+        		<arg line="-o"/>
+        		<mapper type="glob" from="*.css" to="${MINCSS}/*.css"/>
+        		<targetfile/>
+    		</apply>
+  		<copy todir="${MINCSS}/images">
+    			<fileset dir="${CSS}/images">
+      			<include name="*.*"/>
+    			</fileset>
+  		</copy>
+  		<copy todir="${MINCSS}/fonts">
+    			<fileset dir="${CSS}/fonts">
+      			<include name="*.*"/>
+    			</fileset>
+  		</copy>
+	</target>
+
+	<target name="minifyjs" depends="packwar">
+		<mkdir dir="${MINJS}"/>
+
+    		<apply executable="java" parallel="false">
+        		<fileset dir="${JS}" includes="*.js" excludes="*.min.js"/>
+        		<arg line="-jar"/>
+        		<arg path="${YUI}/yuicompressor-2.4.9.jar"/>
+        		<srcfile/>
+        		<arg line="--nomunge"/>
+        		<arg line="-o"/>
+        		<mapper type="glob" from="*.js" to="${MINJS}/*.js"/>
+        		<targetfile/>
+    		</apply>
+  		<copy todir="${MINJS}">
+    			<fileset dir="${JS}">
+      			<include name="*.min.js"/>
+    			</fileset>
+  		</copy>
+
+	</target>
+
+	<target name="minifyjslib" depends="minifyjs">
+		<mkdir dir="${MINJS}/lib"/>
+
+  		<copy todir="${MINJS}/lib">
+    			<fileset dir="${JS}/lib">
+      			<include name="*.js"/>
+    			</fileset>
+  		</copy>
+
+	</target>
+
+	<target name="minipackwar" depends="minifycss,minifyjs,minifyjslib">
+		<echo message=" **** Packing WAR for MINI ******"/>
+		<echo message=" **** Delete the JS Directory **** "/>
+		<delete dir="${JS}"/>
+		<echo message=" **** Delete the CSS Directory **** "/>
+		<delete dir="${CSS}"/>
+
+		<echo message=" **** Move the MINCSS to CSS Directory **** "/>
+	        <move todir="${CSS}">	
+			<fileset dir="${MINCSS}"/>
+		</move>
+
+		<echo message=" **** Move the MINJS to JS Directory **** "/>
+	        <move todir="${JS}">	
+			<fileset dir="${MINJS}"/>
+		</move>
+
+		<war destfile="${dist}/${prj.mini.war.name}" webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="WebContent" includes="**/*.*" excludes="WEB-INF/*.hbm.xml WEB-INF/web.xml  **/.keepme **/.cvsignore **/resource/js/** **/resource/css/**"/>
+			<fileset dir="${build}" includes="WEB-INF/classes/**/*.* resources/**/*.properties"/>
+		</war>
+	</target>
+	<target name="tarfiles" depends="packwar,minipackwar">
+		<tar destfile="${dist}/forms.tar" basedir="${dist}"/>
+		
+	</target>
+
+	<target name="deploy" depends="all">
+		<echo message=" **** Deploying WAR "/>
+		<copy todir="${tomcat.home}/webapps" overwrite="true">
+			<fileset dir="${dist}" includes="${prj.war.name}"/>
+		</copy>
+	</target>
+
+	<target name="undeploy">
+		<echo message=" **** Undeploying WAR "/>
+		<delete includeEmptyDirs="true" quiet="true">
+			<fileset dir="${tomcat.home}/webapps" includes="${prj.war.name}"/>
+		</delete>
+	</target>
+
+	<target name="clean">
+		<echo message=" **** Cleaning "/>
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+
+	<!--taskdef resource="checkstyletask.properties"
+	           classpath="${checkstyle-all.jar}"/>
+	
+	
+	<target name="checkstyle" description="Runs checkstyle on all the
+	source files">
+	        <checkstyle failonviolation="false" config="${check.config}">
+	            <fileset dir="src" includes="**/*.java"/>       
+	            <formatter type="plain"/>
+	        </checkstyle>
+	    </target-->
+
+</project>
