@@ -1,0 +1,47 @@
+{
+        "connectivity" : [
+		{
+		    "_comment": "Jenkins Master...",
+                        "targetName" : "ldsrvcqmbldp003",
+                        "ports" : [8080]
+	        },
+		{
+		    "_comment": "SVN Cluster1 - 20.33.20.5 ...",
+                        "targetName" : "ldsrvcqmsvnp001",
+                        "ports" : [8080]
+                }, 
+		{
+		    "_comment": "SVN Cluster2 - 20.33.20.6 ...",
+                        "targetName" : "lvsrvcqmsvnp002",
+                        "ports" : [8080]
+	        },
+		{
+		    "_comment": "Artifactory...",
+                        "targetName" : "lvsrvcqmsvnp003",
+                        "ports" : [8080]
+	        },
+		{
+		    "_comment": "Crowd...",
+                        "targetName" : "ldsrvalmwwwp001",
+                        "ports" : [8080]
+	        },
+		{
+		    "_comment": "JIRA...",
+                        "targetName" : "ldsrvalmappp001",
+                        "ports" : [8080]
+	        },
+		{
+		    "_comment": "Jenkins Master Backup...",
+                        "targetName" : "ldgrvcqmbldl003",
+                        "ports" : [8080]
+	        },
+		{
+		    "_comment": "jenkins Slave14 Backup...",
+                        "targetName" : "ldgrvcqmbldl004",
+                        "ports" : [8080]
+	        }
+
+        ],
+        "services" : ["jenkins"]
+}
+

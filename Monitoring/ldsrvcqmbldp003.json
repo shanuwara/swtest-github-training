@@ -1,0 +1,46 @@
+{
+        "connectivity" : [{
+                        "targetName" : "ldsrvcqmsvnp001",
+                        "ports" : [8080]
+                }, 
+		{
+                        "targetName" : "lvsrvcqmsvnp002",
+                        "ports" : [8080]
+	        },
+		{
+                        "targetName" : "lvsrvcqmsvnp003",
+                        "ports" : [8080]
+	        },
+		{
+                        "targetName" : "ldsrvcqmbldp004",
+                        "ports" : [8080]
+	        },
+		{
+                        "targetName" : "ldsrvcqmbldp005",
+                        "ports" : [8080]
+	        },
+		{
+                        "targetName" : "ldsrvalmwwwp001",
+                        "ports" : [8080]
+	        },
+		{
+                        "targetName" : "ldsrvalmappp001",
+                        "ports" : [8080]
+	        },
+		{
+                        "targetName" : "ldsrvalmappp002",
+                        "ports" : [8080]
+	        },
+		{
+                        "targetName" : "ldsrvalmdbsp003",
+                        "ports" : [8080]
+	        },
+		{
+                        "targetName" : "ldgrvcqmbldl003",
+                        "ports" : [8080]
+	        }
+
+        ],
+        "services" : ["svn1", "svn2", "artifactory", "jenkins-slave14", "jenkins-slave16", "confluence", "jira", "confluence", "jira-mysql", "jenkins-backup"]
+}
+

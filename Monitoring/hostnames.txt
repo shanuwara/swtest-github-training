@@ -1,0 +1,24 @@
+ldsrvcqmsvnp001|10.33.20.5|SVN Cluster1|
+ldsrvcqmsvnp002|10.33.20.6|SVN Cluster2|
+ldsrvcqmsvnp003|10.33.20.7|Artifactory|
+ldsrvcqmbldp001|10.33.20.11|Old Jenkins|
+ldsrvcqmbldp002|10.33.20.12|Old AtlassionDB|
+ldsrvcqmbldp003|10.33.20.13|Jenkins Master, CQMDB|
+ldsrvcqmbldp004|10.33.20.14|Jenkins Slave DX|
+ldsrvcqmbldp005|10.33.20.16|Jenkins Slave PnG|
+ldsrvcqmbldp006|10.33.20.17|Not Used|
+ldsrvalmwwwp001|10.33.20.20|Crowd|
+ldsrvalmappp001|10.33.20.21|JIRA|
+ldsrvalmappp002|10.33.20.22|Confluence|
+ldsrvalmdbsp003|10.33.20.23|Atlassian MySQL|
+ldgrvcqmsvnl001|10.35.20.5|SVN Backup|
+ldgrvcqmsvnl002|10.35.20.6|Not used|
+ldgrvcqmsvnl003|10.35.20.7|Artifactory Backup?|
+ldgrvcqmbldl001|10.35.20.11|Not used|
+ldgrvcqmbldl002|10.35.20.12|Old AtlassianDB Backup|
+ldgrvcqmbldl003|10.35.20.13|Jenkins Master Backup|
+ldgrvcqmbldl004|10.35.20.14|Jenkins Slave Backup|
+ldgrvalmwwwp001|10.35.20.17|Crowd Backup|
+ldgrvalmappp001|10.35.20.18|JIRA Backup|
+ldgrvalmappp002|10.35.20.19|Confluence Backup|
+ldgrvalmdbsp003|10.35.20.20|Atlassian MYSQL Backup|

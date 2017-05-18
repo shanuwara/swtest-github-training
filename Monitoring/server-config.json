@@ -1,0 +1,263 @@
+{
+   "servers" : [
+  { 
+    "hostserver": "ldsrvcqmbldp003",
+    "alias": "Jenkins Master",
+        "IPaddress": "10.33.20.13",
+          "info":{
+            "connectivity" : [
+               {
+                    "_comment": "SVN Node1...",
+                    "targetName" : "ldsrvcqmsvnp001",
+                    "ports" : [3690]
+                   }, 
+               {
+                      "_comment": "Artifactory Master...",
+                      "targetName" : "ldsrvcqmsvnp003",
+                      "ports" : [8080]
+                  },
+               {
+                      "_comment": "Jenkins Slave DX...",
+                      "targetName" : "ldsrvcqmbldp004",
+                      "ports" : [8080]
+                  },
+               {
+                      "_comment": "Jenkins Slave PnG...",
+                      "targetName" : "ldsrvcqmbldp005",
+                      "ports" : [8080]
+                  },
+               {
+                      "_comment": "Crowd Master...",
+                      "targetName" : "ldsrvalmwwwp001",
+                      "ports" : [8080]
+                  },
+               {
+                      "_comment": "JIRA ...",
+                      "targetName" : "ldsrvalmappp001",
+                      "ports" : [8080]
+                  },
+               {
+                      "_comment": "Confluence...",
+                      "targetName" : "ldsrvalmappp002",
+                      "ports" : [8080]
+                  },
+               {
+                      "_comment": "Atlassian MySQL...",
+                      "targetName" : "ldsrvalmdbsp003",
+                      "ports" : [3306]
+                 },
+               {
+                      "_comment": "Jenkins Master Backup...",
+                      "targetName" : "ldgrvcqmbldl003",
+                      "ports" : [8080]
+                 }
+
+        ],
+
+       
+        "services" : ["sonar-application", "crucible", "fisheye", "jenkins"]
+  }
+
+},    
+ {  "hostserver": "ldsrvcqmbldp004",
+    "alias": "Build Slave DX",
+        "IPaddress": "10.33.20.14",
+          "info":{
+            "connectivity" : [
+               {
+            	      "_comment": "SVN Node1 - 10.33.20.5 ...",
+                      "targetName" : "ldsrvcqmsvnp001",
+                      "ports" : [8080]
+                 }, 
+               {
+            		"_comment": "SVN Node2 - 20.33.20.6 ...",
+                           "targetName" : "ldsrvcqmsvnp002",
+                           "ports" : [3690]
+                 },
+               {
+            	      "_comment": "Artifactory...",
+                      "targetName" : "ldsrvcqmsvnp003",
+                      "ports" : [8080]
+                 },
+               {
+            	      "_comment": "Crowd...",
+                      "targetName" : "ldsrvalmwwwp001",
+                      "ports" : [8080]
+                 },
+               {
+            	      "_comment": "JIRA...",
+                      "targetName" : "ldsrvalmappp001",
+                      "ports" : [8080]
+                 }
+
+        ],
+        "services" : ["slave.jar"]
+ }
+},
+  {
+    "hostserver": "ldsrvcqmbldp005",
+    "alias": "Build Slave PnG",
+        "IPaddress": "10.33.20.16",
+          "info":{
+            "connectivity" : [
+               {
+            	      "_comment": "Crowd...",
+                      "targetName" : "ldsrvalmwwwp001",
+                      "ports" : [8080]
+                 },
+               {
+            	      "_comment": "JIRA...",
+                      "targetName" : "ldsrvalmappp001",
+                      "ports" : [8080]
+                 },
+               {
+            	      "_comment": "SVN Cluster1 - 10.33.20.5 ...",
+                      "targetName" : "ldsrvcqmsvnp001",
+                      "ports" : [3690]
+                 } ,
+               {
+              	      "_comment": "Artifactory...",
+                      "targetName" : "ldsrvcqmsvnp003",
+                      "ports" : [8080]
+                 }
+                
+        ] ,
+        "services" : ["sonar"]
+
+}
+},
+  {
+    "hostserver": "ldsrvalmappp001",
+    "alias": "JIRA",
+        "IPaddress": "10.33.20.21",
+          "info":{
+            "connectivity" : [
+               {
+        	      "_comment": "Confluence...",
+                      "targetName" : "ldsrvalmappp002",
+                      "ports" : [8080]
+                 },
+               {
+                      "_comment": "Atlassian MySQL...",
+                      "targetName" : "ldsrvalmdbsp003",
+                      "ports" : [3306]
+                 }
+                
+        ] ,
+        "services" : ["jira"]
+}
+},
+  {
+    "hostserver": "ldsrvalmappp002",
+    "alias": "Confluence",
+        "IPaddress": "10.33.20.22",
+          "info":{
+                  "connectivity" : [
+                 {
+        	      "_comment": "JIRA...",
+                      "targetName" : "ldsrvalmappp001",
+                      "ports" : [8080]
+       
+                 },
+               {
+                      "_comment": "Atlassian MySQL...",
+                      "targetName" : "ldsrvalmdbsp003",
+                      "ports" : [3306]
+                 }
+                
+        ]  ,
+        "services" : ["confluence"]
+
+     }
+   },
+   {
+    "hostserver": "ldsrvalmdbsp003",
+    "alias": "Atlassian MySQL",
+        "IPaddress": "10.33.20.23",
+          "info":{
+            "connectivity" : [],
+        "services" : ["mysql"]
+    }
+  },
+  {
+    "hostserver": "ldsrvcqmsvnp003",
+    "alias": "Artifactory",
+        "IPaddress": "10.33.20.7",
+          "info":{
+            "connectivity" : []  ,
+
+        "services" : ["jfrog/artifactory"]
+
+}
+},
+{
+    "hostserver": "ldsrvcqmbldp001",
+    "alias": "Old EIS - to be reused",
+        "IPaddress": "10.33.20.11",
+          "info":{
+            "connectivity" : []  ,
+        "services" : ["slave.jar"]
+}
+},
+  {
+    "hostserver": "ldsrvcqmbldp002",
+    "alias": "Old AtlassianDB",
+        "IPaddress": "10.33.20.12",
+          "info":{
+            "connectivity" : []  ,
+
+        "services" : ["atlassian/crowd"]
+
+}
+},
+{
+    "hostserver": "ldsrvalmwwwp001",
+    "IPaddress": "Crowd ",
+        "IPaddress": "10.33.20.20",
+          "info":{
+            "connectivity" : [
+               {
+        	      "_comment": "Confluence...",
+                      "targetName" : "ldsrvalmappp001",
+                      "ports" : [8080]
+                 },
+               {
+        	      "_comment": "Confluence...",
+                      "targetName" : "ldsrvalmappp002",
+                      "ports" : [8080]
+                 },
+               {
+                      "_comment": "Atlassian MySQL...",
+                      "targetName" : "ldsrvalmdbsp003",
+                      "ports" : [3306]
+                 }
+        ] ,
+        "services" : ["atlassian/crowd"]
+
+}
+},
+{
+        "hostserver": "ldsrvcqmsvnp001",
+        "alias": "SVNNode1",
+        "IPaddress": "10.33.20.5",
+         "info":{
+                  "connectivity" : []  ,
+
+        "services" : ["svn-replicator"]
+
+}
+},
+{
+        "hostserver": "ldsrvcqmsvnp002",
+        "alias": "SVNNode2",
+        "IPaddress": "10.33.20.6",
+         "info":{
+                  "connectivity" : []  ,
+
+        "services" : ["svn-replicator"]
+
+}
+}
+
+ ]
+}
