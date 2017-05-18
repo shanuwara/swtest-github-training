@@ -1,0 +1,505 @@
+<html>
+
+  <head>
+    <style>
+
+.cls-1, .cls-7 {
+                fill: none;
+                stroke: #66a74a;
+              }
+
+              .cls-1, .cls-2, .cls-7, .cls-8 {
+                stroke-miterlimit: 10;
+              }
+
+              .cls-1 {
+                stroke-width: 15px;
+              }
+
+              .cls-2, .cls-8 {
+                fill: #424242;
+                stroke: #424242;
+              }
+
+              .cls-2 {
+                stroke-width: 9px;
+              }
+
+              .cls-3 {
+                font-size: 54px;
+              }
+
+              .cls-10, .cls-3, .cls-4, .cls-5, .cls-6, .cls-9 {
+                fill: #c2c2c4;
+                font-family: LucidaConsole, Lucida Console;
+              }
+
+              .cls-4 {
+                font-size: 60px;
+              }
+
+              .cls-5 {
+                font-size: 52px;
+              }
+
+              .cls-6 {
+                font-size: 48px;
+              }
+
+              .cls-7, .cls-8 {
+                stroke-width: 32px;
+              }
+
+              .cls-9 {
+                font-size: 115px;
+              }
+
+              .cls-10 {
+                font-size: 128.74px;
+              }
+
+
+
+
+      #container {
+
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+      }
+
+      .svg-border {
+        width: 100%; 
+        height: 100%; 
+        background-color: rgb(47, 47, 47); 
+        padding-top: 15px; 
+        margin-top: 10px; 
+        border: 1px solid white;
+      }
+
+
+      .dashboard {
+        width: 100%;
+        height: 85%;
+      }
+
+
+* {
+
+  box-sizing: border-box; 
+  /*font-family: "Arial";*/
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 1080px;
+  height: 100%;
+}
+
+
+
+html {
+  height: 100%;
+  min-height: 1080px;
+}
+
+      #wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+    /*-webkit-justify-content: flex-start;*/
+    /*justify-content: flex-start;*/
+}
+
+.one-col {
+  width: 25%;
+  flex: 1 25%;
+  min-width: 350px;
+  float: left;
+
+}
+
+
+.two-col {
+  width: 50%;
+  flex: 2 50%;
+  min-width: 450px;
+  /*float: left;*/
+}
+
+.three-col {
+  width: 75%;
+  flex: 3 75%;
+  min-width: 450px;
+  /*float: left;  */
+}
+
+.four-col {
+  with: 100%;
+  flex: 4 75%;
+  min-width: 450px;
+  /*float: left;*/
+}
+
+
+
+.one-row {
+  /*height: 34%;*/
+  height: 50%;
+  min-height: 240px;
+  overflow: hidden;
+}
+
+.two-row {
+  height: 66%;
+  /*min-height: 250px;*/
+  overflow: hidden;
+}
+
+.three-row {
+  height: 100%;
+  /*min-height: 250px;*/
+  overflow: hidden;
+}
+
+.four-row {
+  height: 100%;
+  /*min-height: 250px;*/
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+
+
+#element1, #element2, #element3, 
+#element4, #element5, #element6, 
+#element7, #element8, #element9, 
+#element10, #element11, #element12,
+#element13, #element14, #element15, #element16 {
+
+  /*flex: 1 100%;*/
+  border: 1px solid black;
+  /*height: auto;*/
+  background-color: #424242 !important;
+  padding: 10px;
+  order: 20;
+}
+
+.head_label > h2 {
+  font-size: 1em;
+    font-weight: normal;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #c2c2c4;
+    color: #c2c2c4;
+    margin-top: 0;
+    font-family: "Arial";
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#legend {
+    width: 450px;
+    height: 40px;
+}
+
+.legend-square {
+    float: left;
+    margin-left: 10px;
+    font-size: 9px;
+    display: block;
+    height: 9px;
+    background-size: 5px 5px;
+    padding-left: 21px;
+    text-transform: uppercase;
+    color: #c2c2c4;
+    /* background: linear-gradient(to right, #597c9a 15px, transparent 1px); */
+}
+
+
+/* module of environments */
+
+#legend {
+    width: 450px;
+    height: 40px;
+}
+
+.legend-square {
+    float: left;
+    margin-left: 10px;
+    font-size: 9px;
+    display: block;
+    height: 9px;
+    background-size: 5px 5px;
+    padding-left: 21px;
+    text-transform: uppercase;
+    color: #c2c2c4;
+    /* background: linear-gradient(to right, #597c9a 15px, transparent 1px); */
+}
+
+.screen2-legend {
+
+  font-size: 10px;
+  fill: #c2c2c4;
+    text-transform: uppercase;
+}
+
+.screen2-legend-value {
+
+  font-size: 10px;
+  /*fill: #c2c2c4;*/
+    text-transform: uppercase;
+}
+
+
+.tooltip {
+  width: 200px;
+    min-height: 150px;
+    height: auto;
+    border: 1px solid #c2c2c4;
+    background-color: #2f2f2f;
+    padding: 11px;
+    font-size: 10px;
+    position: absolute;
+    padding-top: 0;
+    color: #c2c2c4;
+}
+
+
+.tooltip .servicelabel {
+  display: block;
+    float: left;
+    width: 100%;
+    /*height: 12px;*/
+    height: 26px;
+    padding-bottom: 16px;
+    background: linear-gradient(to top, #808080 1px, transparent 1px);
+}
+
+.tooltip .label {
+  margin-top: 6px;
+    width: 100%;
+    float: left;
+    height: 10px;
+}
+
+.tooltip .status {
+  padding: 4px;
+    background-color: #739273;
+    display: block;
+    height: 17px;
+    width: 100%;
+    float: left;
+    margin-top: 6px;
+    box-sizing: border-box;
+}
+
+.tooltip .commentlabel {
+  float: left;
+    margin-top: 6px;
+    background: linear-gradient(to top, #808080 1px, transparent 1px);
+    padding-bottom: 4px;
+    height: 10px;
+}
+
+.tooltip .commentcontent {
+  float: left;
+    width: 100%;
+    margin-top: 6px;
+    height: 47px;
+}
+
+.tooltip .x-container {
+  cursor: pointer;
+}
+
+.tooltip .servicelabel p {
+
+  float: left;
+  margin-right: 6px;
+}
+
+/* end environments */
+    </style>
+    <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.js"></script>
+    <script type="text/javascript">
+
+        window.tt = [];
+
+        var queue = [];
+
+        var hash = window.location.hash;
+        var project_id = hash.substring(hash.indexOf("=") + 1, hash.length);
+        project_id = 1;
+
+
+        var baseEnvironment = "ukiccprod";
+        // var baseEnvironment = "KLESFTPDEV01";
+
+
+        var projects = [
+          {
+            "name": "DX",
+            "id": 1,
+
+          },
+          {
+            "name": "API",
+            "id" : 2,
+          },
+          {
+
+            "name": "PNG",
+            "id" : 9,
+          },
+          {
+
+            "name": "OB",
+            "id" : 100,
+          },
+
+        ];
+
+        var data = [
+          {
+            "order" : 1,
+            "environment" : "SIT",
+            "version": "DX-50"
+
+          },
+          {
+            "order" : 2,
+            "environment" : "UAT",
+            "version": "DX-49"
+
+          },
+          {
+            "order" : 3,
+            "environment" : "PERF",
+            "version": "DX-49"
+
+          },
+          {
+            "order" : 4,
+            "environment" : "PRE-PROD",
+            "version": "DX-49"
+
+          },
+          {
+            "order" : 5,
+            "environment" : "PROD",
+            "version": "DX-40"
+
+          }
+        ];
+
+
+        
+
+        var clickLinks = [
+          {
+            "id": "DX",
+            "url": "http://10.33.20.7:8081/rwd/"
+          },
+          {
+            "id": "API",
+            "url": "http://10.33.20.7:8081/api/"
+          },
+          {
+            "id": "OB",
+            "url": "http://10.33.20.7:8081/ob"
+          },
+          {
+            "id": "PNG",
+            "url": "http://10.33.20.7:8081/png/"
+          }
+        ];
+
+
+        var xhttp = null;
+
+        var url = "http://10.33.20.14:8055/api/services/1" ;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+              var response =  xhttp.responseText;
+
+              if (response != undefined) {
+                var data = JSON.parse(response);
+                console.log(data);
+
+                
+                window.tt['services'] = data
+                window["environments"].apply(null, [tt]); 
+                environments();
+              }
+            }
+        };
+
+          xhttp.open("GET", url, true);
+          xhttp.send();
+
+       /*$http({method:'GET',url:'http://10.33.20.14:8055/api/services/' + project_id}).then(function success(response) {
+
+            
+            window.tt['services'] = response.data;
+            window["environments"].apply(null, [tt]); 
+
+            
+        });*/
+
+    </script>
+    <script src="js/environments.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+
+  <div id="wrapper">
+    
+      <div id="element1" class="two-col three-row" ng-controller="singleDataController" json-Source="jira/sprint/details/1">
+        <div class="dashboard" id="environments">
+            <div class="head_label">
+              <h2>DX Dasboard</h2>
+            </div>
+
+            <div id="DX">
+              <div id="env-container" style="width: 100%; height: 100%">
+                <svg id="env-screen1"></svg>
+              </div>
+
+              <div id="legend">
+                <p style="background: linear-gradient(to right, #d97c7c 15px, transparent 1px);" class="legend-square">Old</p>
+                <p style="background: linear-gradient(to right, #cab43b  15px, transparent 1px);" class="legend-square">Newer</p>
+                <p style="background: linear-gradient(to right, #597c9a  15px, transparent 1px);" class="legend-square">Missing</p>
+                <p style="background: linear-gradient(to right, #5c8b62  15px, transparent 1px);" class="legend-square">Match</p>
+              </div>
+              
+            </div>
+
+
+
+        </div>
+      </div>
+
+
+     
+
+  
+  </div>
+
+      
+
+<script type="text/javascript" src="js/metro.js"></script>      
+
+
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis--x path {
+  display: none;
+}
+
+</style>
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+
+function get(url, callback) {
+  xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+          var response =  xhttp.responseText;
+
+
+          if (response != undefined) {
+            var data = JSON.parse(response);
+            callback(data);
+
+          }
+        }
+      };
+
+      xhttp.open("GET", url, true);
+      xhttp.send();
+}
+
+
+function getLastReleases(projectId, environment, limit, callback) {
+
+  var url = "http://10.33.20.14:8055/api/environment/deployment/" + projectId + "/" + environment + "/" + limit;
+  get(url, function(_d) {
+    callback(_d);
+  });
+
+  
+}
+
+
+    // x.domain(data.map(function(d) { return d.Jenkins_Job_Start_Time; }));
+    // y.domain([0, d3.max(data, function(d) { return d.Jenkins_Job_Duration; })]);
+
+var svg = d3.select("svg"),
+    margin = {top: 50, right: 20, bottom: 30, left: 40},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom;
+
+var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+    y = d3.scaleLinear().rangeRound([height, 0]);
+
+
+var x = d3.scaleTime().range([0, width]);
+
+
+var parseDate = d3.timeFormat('%d %H:%M:%S %L');
+
+var g = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+
+  /*data = [{
+    "Jenkins_Job_Start_Time" : "2016-11-10",
+    "Jenkins_Job_Duration" : 4
+  }
+  ];*/
+
+  getLastReleases(11, "DEV", 10, function(_data) {
+
+    data = _data;
+
+
+
+    x.domain(data.map(function(d) { return d.Jenkins_Job_Start_Time; }));
+    y.domain([0, d3.max(data, function(d) { return d.Jenkins_Job_Duration; })]);
+
+    // var barWidth = x.bandwidth();
+    var barWidth = 25;
+    var circleWidth = (barWidth / 2) * 1.75;
+    var greenBar = "#69876c";
+    var redBar = "#a16865";
+
+    var x1 = d3.scaleOrdinal(data.map(function(d) {
+        // return  parseDate(new Date(d.Jenkins_Job_Start_Time));
+        return x(d.Jenkins_Job_Start_Time)
+        // return d.Jenkins_Job_Start_Time;
+    }));
+
+    g.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+    g.append("g")
+        .attr("class", "axis axis--y")
+        .call(d3.axisLeft(y).ticks(10, "%"))
+      .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", "0.71em")
+        .attr("text-anchor", "end")
+        .text("Frequency");
+
+    var barGroup = g.selectAll(".bar")
+      .data(data)
+      .enter()
+      .append("g").attr("class", "barGroup");
+
+     
+      // bar
+      barGroup.append("rect")
+        .attr("x", function(d) { 
+          return x(d.Jenkins_Job_Start_Time); 
+        })
+        .attr("y", function(d) { 
+          return y(d.Jenkins_Job_Duration); 
+        })
+        .attr("width", barWidth)
+        .attr("height", function(d) { 
+          return height - y(d.Jenkins_Job_Duration); 
+        })
+        .attr('fill', greenBar);
+
+      
+
+      // big circle
+      barGroup.append("circle")
+        .attr("r", circleWidth)
+        .attr('cx', function(d) {
+          var value = x(d.Jenkins_Job_Start_Time) + barWidth/2;
+          return value;
+        })
+        .attr('cy', function(d) {
+          return y(d.Jenkins_Job_Duration);
+        })
+        .attr('fill', '#69876c')
+        ;
+
+      // small circle
+      barGroup.append("circle")
+        .attr("r", circleWidth / 2)
+        .attr('cx', function(d) {
+          var value = x(d.Jenkins_Job_Start_Time) + barWidth/2;
+          return value;
+        })
+        .attr('cy', function(d) {
+          return y(d.Jenkins_Job_Duration);
+        }).
+        attr('fill', 'black');
+
+
+
+  });
+
+
+
+  
+
+</script>

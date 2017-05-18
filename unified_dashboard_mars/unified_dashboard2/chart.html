@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis--x path {
+  display: none;
+}
+
+</style>
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script>
+
+function get(url, callback) {
+  xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+          var response =  xhttp.responseText;
+
+
+          if (response != undefined) {
+            var data = JSON.parse(response);
+            callback(data);
+
+          }
+        }
+      };
+
+      xhttp.open("GET", url, true);
+      xhttp.send();
+}
+
+
+function getLastReleases(projectId, environment, limit, callback) {
+
+  var url = "http://10.33.20.14:8055/api/environment/deployment/" + projectId + "/" + environment + "/" + limit;
+  get(url, function(d) {
+    callback(d);
+  });
+
+  
+}
+
+
+ /* arrData = {};
+    for (var i = 0; i < _data.length; i++) {
+      var item = _data[i];
+
+      // arrData.push({"letter":item.Jenkins_Job_Start_Time, "frequency":item.Jenkins_Job_Duration});
+    }
+*/
+
+function transformData() {
+  getLastReleases(11, "DEV", 5, function(_data) {
+    console.log(_data);
+
+  
+
+  // http://10.33.20.14:8055/api/environment/deployment/11/DEV/5
+
+
+    var margin = {top: 20, right: 20, bottom: 70, left: 40},
+    width = 600 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
+
+  // Parse the date / time
+  var parseDate = d3.time.format("%Y-%m").parse;
+  // var parseDate = d3.timeFormat('%H:%M:%S %L');
+
+  var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+
+  var y = d3.scale.linear().range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom")
+      .tickFormat(d3.time.format("%Y-%m"));
+
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .ticks(10);
+
+  var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", 
+            "translate(" + margin.left + "," + margin.top + ")");
+
+  d3.json("http://10.33.20.14:8055/api/environment/deployment/11/DEV/5", function(error, data) {
+
+      data.forEach(function(d) {
+          // d.Jenkins_Job_Start_Time = parseDate(d.Jenkins_Job_Start_Time);
+          d.Jenkins_Job_Start_Time = parseDate("2016-11-10");
+          d.Jenkins_Job_Duration = +d.Jenkins_Job_Duration;
+      });
+    
+    x.domain(data.map(function(d) { return d.Jenkins_Job_Start_Time; }));
+    y.domain([0, d3.max(data, function(d) { return d.Jenkins_Job_Duration; })]);
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+      .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", "-.55em")
+        .attr("transform", "rotate(-90)" );
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+      .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Value ($)");
+
+    svg.selectAll("bar")
+        .data(data)
+      .enter().append("rect")
+        .style("fill", "steelblue")
+        .attr("x", function(d) { return x(d.Jenkins_Job_Start_Time); })
+        .attr("width", x.rangeBand())
+        .attr("y", function(d) { return y(d.Jenkins_Job_Duration); })
+        .attr("height", function(d) { return height - y(d.Jenkins_Job_Duration); });
+
+  });
+});
+
+}
+
+transformData();
+
+
+
+</script>

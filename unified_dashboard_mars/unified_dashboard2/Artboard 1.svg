@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #424242;
+        stroke: #000;
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-10, .cls-11, .cls-12, .cls-15, .cls-5, .cls-6, .cls-7, .cls-9 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        font-size: 18px;
+      }
+
+      .cls-14, .cls-19, .cls-2, .cls-5, .cls-8 {
+        fill: #c2c2c4;
+      }
+
+      .cls-14, .cls-2, .cls-8 {
+        font-family: ArialMT, Arial;
+      }
+
+      .cls-3 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-4 {
+        letter-spacing: -0.06em;
+      }
+
+      .cls-15, .cls-5, .cls-6 {
+        stroke: #c2c2c4;
+      }
+
+      .cls-10, .cls-12, .cls-6 {
+        fill: #2f2f2f;
+      }
+
+      .cls-15, .cls-7 {
+        fill: none;
+      }
+
+      .cls-7 {
+        stroke: gray;
+      }
+
+      .cls-8 {
+        font-size: 10px;
+      }
+
+      .cls-11, .cls-16, .cls-9 {
+        fill: #69876c;
+      }
+
+      .cls-10, .cls-9 {
+        stroke: #69876c;
+      }
+
+      .cls-11, .cls-9 {
+        stroke-width: 10px;
+      }
+
+      .cls-10, .cls-12 {
+        stroke-width: 5px;
+      }
+
+      .cls-11, .cls-12 {
+        stroke: #a16865;
+      }
+
+      .cls-13 {
+        letter-spacing: -0.07em;
+      }
+
+      .cls-14 {
+        font-size: 14px;
+      }
+
+      .cls-17 {
+        fill: #58715a;
+      }
+
+      .cls-18 {
+        fill: #a05e5a;
+      }
+
+      .cls-19 {
+        font-size: 12px;
+        font-family: Arial-BoldMT, Arial;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <title>Artboard 1</title>
+  <g id="Background">
+    <rect class="cls-1" x="1.67" width="960" height="560"/>
+  </g>
+  <g id="Underline">
+    <text class="cls-2" transform="translate(43.06 37.43)"><tspan xml:space="preserve">DX   </tspan><tspan class="cls-3" x="40.01" y="0"> </tspan><tspan x="44.68" y="0">TS</tspan><tspan class="cls-4" x="67.68" y="0">T</tspan><tspan x="77.69" y="0">-1</tspan></text>
+    <line class="cls-5" x1="17.11" y1="44.39" x2="946.23" y2="44.39"/>
+  </g>
+  <g id="CurrentVersion">
+    <text class="cls-2" transform="translate(686.26 37.43)"><tspan xml:space="preserve">Latest Deployment :  DX-45</tspan></text>
+  </g>
+  <g id="Graph_Background" data-name="Graph Background">
+    <rect class="cls-6" x="17.11" y="73.68" width="925.95" height="257.59"/>
+  </g>
+  <g id="Grid">
+    <line class="cls-7" x1="42.43" y1="283.81" x2="898.66" y2="283.81"/>
+    <line class="cls-7" x1="43.06" y1="251.53" x2="898.13" y2="251.53"/>
+    <line class="cls-7" x1="43.06" y1="219.25" x2="898.13" y2="219.25"/>
+    <line class="cls-7" x1="43.06" y1="190.14" x2="898.13" y2="190.14"/>
+    <line class="cls-7" x1="43.06" y1="162.92" x2="898.13" y2="162.92"/>
+    <line class="cls-7" x1="43.06" y1="134.44" x2="898.13" y2="134.44"/>
+    <line class="cls-7" x1="42.43" y1="104.7" x2="898.13" y2="104.7"/>
+    <line class="cls-7" x1="94.96" y1="317.04" x2="94.96" y2="106.28"/>
+    <line class="cls-7" x1="233.57" y1="317.04" x2="233.57" y2="106.28"/>
+    <line class="cls-7" x1="365.85" y1="317.04" x2="365.85" y2="106.28"/>
+    <line class="cls-7" x1="499.39" y1="317.04" x2="499.39" y2="106.28"/>
+    <line class="cls-7" x1="634.2" y1="317.04" x2="634.2" y2="106.28"/>
+    <line class="cls-7" x1="769.65" y1="317.04" x2="769.65" y2="106.28"/>
+    <line class="cls-7" x1="898.13" y1="317.04" x2="898.13" y2="106.28"/>
+    <text class="cls-8" transform="translate(43.06 248.37)">1 Min</text>
+    <text class="cls-8" transform="translate(43.06 215.76)">2 Mins</text>
+    <text class="cls-8" transform="translate(43.06 186.65)">3 Mins</text>
+    <text class="cls-8" transform="translate(42.43 159.71)">4 Mins</text>
+    <text class="cls-8" transform="translate(42.43 130.6)">5 Mins</text>
+    <g>
+      <line class="cls-9" x1="131.67" y1="283.81" x2="131.67" y2="220.52"/>
+      <circle class="cls-10" cx="131.67" cy="215.77" r="8.54"/>
+    </g>
+    <line class="cls-9" x1="158.11" y1="283.81" x2="158.11" y2="176.22"/>
+    <line class="cls-9" x1="200.34" y1="284.44" x2="200.34" y2="233.18"/>
+    <line class="cls-9" x1="260.15" y1="284.44" x2="260.15" y2="162.92"/>
+    <line class="cls-9" x1="286.73" y1="284.44" x2="286.73" y2="233.18"/>
+    <line class="cls-9" x1="200.34" y1="284.44" x2="200.34" y2="233.18"/>
+    <line class="cls-9" x1="310.15" y1="284.44" x2="310.15" y2="193.94"/>
+    <line class="cls-9" x1="334.84" y1="284.44" x2="334.84" y2="202.48"/>
+    <circle class="cls-10" cx="310.15" cy="193.94" r="8.54"/>
+    <circle class="cls-10" cx="286.73" cy="233.18" r="8.54"/>
+    <circle class="cls-10" cx="200.34" cy="230.57" r="8.54"/>
+    <circle class="cls-10" cx="158.11" cy="172.73" r="8.54"/>
+    <circle class="cls-10" cx="260.15" cy="159.71" r="8.54"/>
+    <circle class="cls-10" cx="334.84" cy="202.48" r="8.54"/>
+    <line class="cls-11" x1="390.77" y1="283.18" x2="390.77" y2="219.89"/>
+    <circle class="cls-12" cx="390.77" cy="215.76" r="8.54"/>
+    <line class="cls-9" x1="419.65" y1="283.08" x2="419.65" y2="180.65"/>
+    <line class="cls-9" x1="477.38" y1="283.18" x2="477.38" y2="219.89"/>
+    <line class="cls-9" x1="551.89" y1="283.81" x2="551.89" y2="168.25"/>
+    <line class="cls-9" x1="526.92" y1="284.44" x2="526.92" y2="221.15"/>
+    <circle class="cls-10" cx="551.89" cy="168.25" r="8.54"/>
+    <circle class="cls-10" cx="526.92" cy="226.03" r="8.54"/>
+    <circle class="cls-10" cx="477.38" cy="211.66" r="8.54"/>
+    <circle class="cls-10" cx="419.65" cy="181.28" r="8.54"/>
+    <line class="cls-11" x1="719.96" y1="283.81" x2="719.96" y2="181.28"/>
+    <line class="cls-11" x1="652.56" y1="284.44" x2="652.56" y2="258.81"/>
+    <line class="cls-9" x1="758.25" y1="283.81" x2="758.25" y2="220.52"/>
+    <line class="cls-9" x1="740.53" y1="284.44" x2="740.53" y2="207.22"/>
+    <line class="cls-9" x1="686.26" y1="284.44" x2="686.26" y2="221.15"/>
+    <circle class="cls-10" cx="758.25" cy="222.03" r="8.54"/>
+    <circle class="cls-10" cx="740.85" cy="204.7" r="8.54"/>
+    <circle class="cls-10" cx="686.26" cy="220.84" r="8.54"/>
+    <circle class="cls-12" cx="719.96" cy="180.01" r="8.54"/>
+    <circle class="cls-12" cx="652.56" cy="258.81" r="8.54"/>
+    <line class="cls-9" x1="823.44" y1="284.44" x2="823.44" y2="162.92"/>
+    <circle class="cls-10" cx="823.44" cy="162.92" r="8.54"/>
+  </g>
+  <g id="Graph_Text" data-name="Graph Text">
+    <text class="cls-8" transform="translate(98.13 296)">Nov 8</text>
+    <text class="cls-8" transform="translate(238.18 296)">Nov 9</text>
+    <text class="cls-8" transform="translate(369.82 296)">Nov 10</text>
+    <text class="cls-8" transform="translate(502.73 296)">Nov <tspan class="cls-13" x="20.56" y="0">1</tspan><tspan x="25.38" y="0">1</tspan></text>
+    <text class="cls-8" transform="translate(638.18 296)">Nov 12</text>
+    <text class="cls-8" transform="translate(773.62 296)">Nov 13</text>
+  </g>
+  <g id="Recent_Deployments_heading" data-name="Recent Deployments heading">
+    <text class="cls-14" transform="translate(17.11 357.32)">Recent Deployments</text>
+  </g>
+  <g id="Recent_Deployments_underline" data-name="Recent Deployments underline">
+    <line class="cls-15" x1="17.11" y1="368.08" x2="943.06" y2="368.08"/>
+  </g>
+  <g id="Table_Background" data-name="Table Background">
+    <rect class="cls-16" x="17.11" y="383.9" width="925.95" height="22.15"/>
+    <rect class="cls-17" x="17.03" y="405.15" width="925.95" height="22.15"/>
+    <rect class="cls-16" x="17.03" y="426.3" width="925.95" height="22.15"/>
+    <rect class="cls-18" x="16.7" y="447.89" width="925.95" height="22.15"/>
+    <rect class="cls-16" x="17.03" y="469.89" width="925.95" height="22.15"/>
+    <rect class="cls-18" x="17.03" y="491.89" width="925.95" height="22.15"/>
+    <rect class="cls-16" x="17.03" y="513.04" width="925.95" height="22.15"/>
+  </g>
+  <g id="Table_text" data-name="Table text">
+    <text class="cls-19" transform="translate(47.67 398.33)">DX-45</text>
+    <text class="cls-19" transform="translate(399.32 398.33)">November 13th 2016</text>
+    <text class="cls-19" transform="translate(754.67 398.33)"><tspan class="cls-4">1</tspan><tspan x="6.01" y="0">1.45 am</tspan></text>
+    <text class="cls-19" transform="translate(46.82 420.87)">DX-44</text>
+    <text class="cls-19" transform="translate(398.47 420.87)">November 12th 2016</text>
+    <text class="cls-19" transform="translate(753.82 420.87)">5.23 pm</text>
+    <text class="cls-19" transform="translate(47.24 442)">DX-44</text>
+    <text class="cls-19" transform="translate(398.89 442)">November 12th 2016</text>
+    <text class="cls-19" transform="translate(754.24 442)">3.20 pm</text>
+    <text class="cls-19" transform="translate(46.39 464.54)">DX-44</text>
+    <text class="cls-19" transform="translate(398.04 464.54)">November 12th 2016</text>
+    <text class="cls-19" transform="translate(753.39 464.54)">1.45 pm</text>
+    <text class="cls-19" transform="translate(46.24 485.33)">DX-44</text>
+    <text class="cls-19" transform="translate(397.89 485.33)">November 12th 2016</text>
+    <text class="cls-19" transform="translate(753.24 485.33)">10.05 am</text>
+    <text class="cls-19" transform="translate(45.39 507.87)">DX-43</text>
+    <text class="cls-19" transform="translate(397.04 507.87)">November 12th 2016</text>
+    <text class="cls-19" transform="translate(752.39 507.87)">6.45 am</text>
+    <text class="cls-19" transform="translate(45.82 528.21)">DX-42</text>
+    <text class="cls-19" transform="translate(397.47 528.21)">November <tspan class="cls-4" x="62.02" y="0">1</tspan><tspan x="68.03" y="0">1th 2016</tspan></text>
+    <text class="cls-19" transform="translate(752.82 528.21)">10.45 am</text>
+  </g>
+</svg>

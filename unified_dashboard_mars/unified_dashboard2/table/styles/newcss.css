@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12-Feb-2016, 11:03:51
+    Author     : Reza Manouchehri
+*/
+
+table thead .sorting, table thead .sorting_asc, table thead .sorting_desc, table thead .sorting_asc_disabled, table thead .sorting_desc_disabled {
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+}
+table thead th {
+    padding-left: 7px;
+}
+table th {
+    background-color: rgb(247, 247, 247);
+    color: rgb(92, 92, 92);
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid rgb(215, 215, 215);
+    border-left: 1px solid rgb(215, 215, 215);
+}
+table thead th span {
+    padding-right: 20px;
+}
+table thead .sorting_desc {
+    background-image: url('../Images/des.png')   ;
+    cursor: pointer;
+}
+
+table thead .sorting_asc {
+    background-image: url('../Images/asc.png')   ;
+    cursor: pointer;
+}
+table thead .sorting {
+    background-image: url('../Images/no-sort.png')   ;
+    cursor: pointer;
+}
